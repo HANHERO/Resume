@@ -28,7 +28,7 @@ public class ArrayStorage {
     public void save(Resume r) {
         if (isExist(r)) {
             System.out.println("Анкета с ID " + r.getUuid() + " существует!");
-        } else if (size==STORAGE_LIMIT){
+        } else if (size == STORAGE_LIMIT) {
             System.out.println("Хранилище переполнено!");
         } else {
             storage[size] = r;
