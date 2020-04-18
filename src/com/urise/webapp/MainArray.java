@@ -19,6 +19,5 @@ public class MainArray {
         as.clear();
         System.out.println("Кол-во анкет: " + as.size());
 
-
     }
 }
