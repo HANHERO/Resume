@@ -49,7 +49,6 @@ public class ArrayStorage {
         } else System.out.println("Анкета с ID " + r.getUuid() + " не существует!");
     }
 
-
     public Resume get(String uuid) {
         for (int i = 0; i < size; i++) {
             if (uuid.equals(storage[i].getUuid())) {
