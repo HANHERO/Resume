@@ -5,7 +5,8 @@ import com.urise.webapp.model.Resume;
 import java.util.Arrays;
 
 public class ArrayStorage {
-    private Resume[] storage = new Resume[10000];
+    private static final int STORAGE_LIMIT = 10000;
+    private Resume[] storage = new Resume[STORAGE_LIMIT];
     private int size = 0;
 
     public void clear() {
@@ -27,6 +28,8 @@ public class ArrayStorage {
     public void save(Resume r) {
         if (isExist(r)) {
             System.out.println("Анкета с ID " + r.getUuid() + " существует!");
+        } else if (size==STORAGE_LIMIT){
+            System.out.println("Хранилище переполнено!");
         } else {
             storage[size] = r;
             System.out.println("Анкета создана.");
