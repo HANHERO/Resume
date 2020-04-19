@@ -21,5 +21,6 @@ public class MainArray {
         ARRAY_STORAGE.clear();
         System.out.println("Кол-во анкет: " + ARRAY_STORAGE.size());
 
+
     }
 }
