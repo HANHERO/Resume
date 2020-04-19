@@ -19,5 +19,15 @@ public abstract class AbstractArrayStorage implements Storage{
         Arrays.fill(storage, 0, size, null);
         size = 0;
     }
+    public Resume get(String uuid) {
+        int index = getIndex(uuid);
+        if (index == -1) {
+            System.out.println("Такой анкеты не существует!");
+            return null;
+        }
+        return storage[getIndex(uuid)];
+    }
+
+    protected abstract int getIndex(String uuid);
 
 }
