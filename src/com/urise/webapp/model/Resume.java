@@ -1,9 +1,10 @@
 package com.urise.webapp.model;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Resume implements Comparable<Resume>{
-    private String uuid;
+    private final String uuid;
     private String name;
     private String surname;
     private String birthDay;
@@ -13,9 +14,6 @@ public class Resume implements Comparable<Resume>{
         return uuid;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
 
     @Override
     public String toString() {
@@ -26,15 +24,20 @@ public class Resume implements Comparable<Resume>{
                 "Адрес: " + address + '\n';
     }
 
-    public Resume(String uuid, String name, String surname, String birthDay, String address) {
-        this.uuid = uuid;
+    public Resume(String name, String surname, String birthDay, String address) {
+        this.uuid = UUID.randomUUID().toString();
         this.name = name;
         this.surname = surname;
         this.birthDay = birthDay;
         this.address = address;
     }
 
+    public Resume(String uuid) {
+        this.uuid = uuid;
+    }
+
     public Resume() {
+        this(UUID.randomUUID().toString());
     }
 
     @Override

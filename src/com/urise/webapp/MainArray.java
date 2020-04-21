@@ -9,7 +9,7 @@ public class MainArray {
 
     public static void main(String[] args) {
 
-        ARRAY_STORAGE.save(new Resume("M160361", "John", "Sins", "12.05.80", "Earth"));
+        ARRAY_STORAGE.save(new Resume("John", "Sins", "12.05.80", "Earth"));
 
         System.out.println(ARRAY_STORAGE.get("M160361").toString());
 
