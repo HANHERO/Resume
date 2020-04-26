@@ -14,6 +14,37 @@ public class Resume implements Comparable<Resume>{
         return uuid;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     @Override
     public String toString() {
@@ -26,6 +57,13 @@ public class Resume implements Comparable<Resume>{
 
     public Resume(String name, String surname, String birthDay, String address) {
         this.uuid = UUID.randomUUID().toString();
+        this.name = name;
+        this.surname = surname;
+        this.birthDay = birthDay;
+        this.address = address;
+    }
+    public Resume(String uuid, String name, String surname, String birthDay, String address) {
+        this.uuid = uuid;
         this.name = name;
         this.surname = surname;
         this.birthDay = birthDay;
