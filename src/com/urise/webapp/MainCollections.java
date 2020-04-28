@@ -7,11 +7,21 @@ import java.util.*;
 public class MainCollections implements Collection {
     public static void main(String[] args) {
         Collection<Resume> collection = new ArrayList<>();
-        collection.add(new Resume("John", "Sins", "12.05.80", "Earth"));
-        collection.add(new Resume("John", "Sins", "12.05.80", "Earth"));
-        collection.add(new Resume("23132", "John", "Sins", "12.05.80", "Earth"));
-        collection.add(new Resume("John", "Sins", "12.05.80", "Earth"));
 
+        String UUID_1 = "uuid1";
+        String UUID_2 = "uuid2";
+        String UUID_3 = "uuid3";
+        String UUID_4 = "uuid4";
+
+        Resume RESUME_1 = new Resume(UUID_1);
+        Resume RESUME_2 = new Resume(UUID_2);
+        Resume RESUME_3 = new Resume(UUID_3);
+        Resume RESUME_4 = new Resume(UUID_4);
+
+        collection.add(RESUME_1);
+        collection.add(RESUME_2);
+        collection.add(RESUME_3);
+        collection.add(RESUME_4);
         Iterator<Resume> iterator = collection.iterator();
         while (iterator.hasNext()) {
             Resume r = iterator.next();
@@ -22,7 +32,18 @@ public class MainCollections implements Collection {
         }
         System.out.println(collection.toString());
 
-        Map <String, Resume> map = new HashMap<>();
+        Map<String, Resume> map = new HashMap<>();
+        map.put(UUID_1, RESUME_1);
+        map.put(UUID_2, RESUME_2);
+        map.put(UUID_3, RESUME_3);
+        map.put(UUID_4, RESUME_4);
+        for (String uuid : map.keySet()) {
+            System.out.println(map.get(uuid));
+        }
+        for (Map.Entry<String, Resume> entry :
+                map.entrySet()) {
+            System.out.println(entry.getValue());
+        }
     }
 
     @Override
