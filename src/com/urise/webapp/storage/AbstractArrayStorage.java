@@ -3,6 +3,7 @@ package com.urise.webapp.storage;
 import com.urise.webapp.exception.ExistStorageException;
 import com.urise.webapp.exception.NotExistStorageException;
 import com.urise.webapp.exception.StorageException;
+import com.urise.webapp.logger.ProgramLogger;
 import com.urise.webapp.model.Resume;
 
 import java.util.Arrays;
@@ -24,14 +25,14 @@ public abstract class AbstractArrayStorage implements Storage {
         storage[index] = storage[size - 1];
         storage[size - 1] = null;
         size--;
-        System.out.println("Анкета удалена.");
+        ProgramLogger.getProgramLogger().addLogInfo("Анкета удалена.");
     }
 
     public void save(Resume r) {
         int index = getIndex(r.getUuid());
         if (index == -1) {
             storage[size] = r;
-            System.out.println("Анкета создана.");
+            ProgramLogger.getProgramLogger().addLogInfo("Анкета создана.");
             size++;
         } else if (size == STORAGE_LIMIT) {
             throw new StorageException("Хранилище переполнено!" ,r.getUuid());
@@ -47,6 +48,7 @@ public abstract class AbstractArrayStorage implements Storage {
     public void clear() {
         Arrays.fill(storage, 0, size, null);
         size = 0;
+        ProgramLogger.getProgramLogger().addLogInfo("Все записи удалены.");
     }
 
     public void update(Resume r) {
@@ -55,7 +57,7 @@ public abstract class AbstractArrayStorage implements Storage {
             throw new NotExistStorageException(r.getUuid());
         } else {
             storage[index] = r;
-            System.out.println("Анкета успешно обновлена.");
+            ProgramLogger.getProgramLogger().addLogInfo("Анкета успешно обновлена.");
         }
     }
 

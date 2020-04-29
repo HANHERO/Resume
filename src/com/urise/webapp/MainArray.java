@@ -1,5 +1,6 @@
 package com.urise.webapp;
 
+import com.urise.webapp.logger.ProgramLogger;
 import com.urise.webapp.model.Resume;
 import com.urise.webapp.storage.ArrayStorage;
 import com.urise.webapp.storage.Storage;
@@ -11,7 +12,7 @@ public class MainArray {
 
         ARRAY_STORAGE.save(new Resume("John", "Sins", "12.05.80", "Earth"));
 
-        System.out.println(ARRAY_STORAGE.get("M160361").toString());
+//        System.out.println(ARRAY_STORAGE.get("M160361").toString());
 
         System.out.println("Кол-во анкет: " + ARRAY_STORAGE.size());
 
@@ -20,6 +21,8 @@ public class MainArray {
         }
         ARRAY_STORAGE.clear();
         System.out.println("Кол-во анкет: " + ARRAY_STORAGE.size());
+
+        ProgramLogger.getProgramLogger().showLogFile();
 
     }
 }
