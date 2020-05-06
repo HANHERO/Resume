@@ -2,12 +2,13 @@ package com.urise.solid.io;
 
 import java.util.Scanner;
 
-public class ReaderConsole implements IReader{
+public class ReaderConsole implements IReader {
     private Scanner scanner;
 
-    public ReaderConsole(Scanner scanner){
+    public ReaderConsole(Scanner scanner) {
         this.scanner = scanner;
     }
+
     @Override
     public int read() {
         return scanner.nextInt();

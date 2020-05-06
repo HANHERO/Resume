@@ -1,6 +1,6 @@
 package com.urise.solid.io;
 
-public class PrinterConsole implements IPrinter{
+public class PrinterConsole implements IPrinter {
     @Override
     public void print(String text) {
         System.out.print(text);
